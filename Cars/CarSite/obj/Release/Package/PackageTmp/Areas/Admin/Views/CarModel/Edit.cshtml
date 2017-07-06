@@ -1,0 +1,72 @@
+﻿
+@using CarSite.ViewModel;
+@model CarModelViewModel
+
+@{
+    ViewBag.Title = "Update";
+
+}
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "CarModel", FormMethod.Post, new { id = "Cars", name = "Cars" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Model</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CarModel.Id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModel.CarManufacturerId, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CarModel.CarManufacturerId, Model.CarManufacturers.Select(m => new SelectListItem()
+          {
+              Text = m.Name,
+              Value = m.Id.ToString(),
+              Selected = m.Id == Model.CarModel.CarManufacturerId
+
+
+          }), "Select", new { @class = "form-control" }
+          )
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModel.Model, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarModel.Model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarModel.Model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModel.DailyCost, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarModel.DailyCost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarModel.DailyCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModel.DailyCostDelay, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarModel.DailyCostDelay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarModel.DailyCostDelay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}
+

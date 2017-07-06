@@ -1,0 +1,43 @@
+﻿
+<div class="form-inline" style="position:relative">
+    <form class="form-inline" method="get" action="@Url.Action("Index", "Cars")" style="width: 100%">
+        <div class="form-group">
+            <label for="carManufacturer">Manufacturer</label>
+            <select name="carManufacturer" id="carManufacturer" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label for="carModel">Model</label>
+            <select name="carModel" id="carModel" class="form-control"></select>
+
+        </div>
+
+        <div class="form-group" style="width: 150px; margin-right: 155px; ">
+            <label for="transmission">transmission</label>
+            <select name="transmission" id="transmission" class="form-control">
+                <option value="">Select</option>
+                <option value="1">Manual</option>
+                <option value="2">Automatic</option>
+            </select>
+
+        </div>
+
+        <div class="form-group" style="width:150px;">
+            <label for="startdate">Pick Up Date</label> <span class="text-danger" id="sdate">*</span>
+            <input class="startdate form-control" name="startdate" id="startdate" readonly="readonly" style="cursor:default">
+
+        </div>
+
+        <div class="form-group" style="width:150px;">
+            <label for="enddate">Return Date</label> <span class="text-danger" id="edate">*</span>
+            <input class="enddate form-control" name="enddate" id="enddate" readonly="readonly" style="cursor:default">
+
+        </div>
+
+
+        <div class="form-group" style="margin-left: 55px";>
+            <button type="submit" class="btn btn-primary " style="position:absolute;bottom:0px">Serch</button>
+          
+        </div>
+
+    </form>
+</div>

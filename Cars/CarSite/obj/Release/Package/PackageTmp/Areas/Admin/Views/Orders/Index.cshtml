@@ -1,0 +1,86 @@
+﻿@using  CarSite.ViewModel;
+@model IEnumerable<OrdersViewModel>
+
+<p>
+  
+</p>
+<h2>Orders</h2>
+<table class="table">
+    <tr>
+        <th style="text-align:left">
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th style="text-align:left">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th style="text-align:left">
+            @Html.DisplayNameFor(model => model.Car)
+        </th>
+  
+        <th style="text-align:left">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th style="text-align:left">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+
+        <th style="text-align:left">
+            @Html.DisplayNameFor(model => model.CloseOrder)
+        </th>
+  
+ 
+        
+        <th></th>
+    </tr>
+
+    
+
+    @foreach (var item in Model)
+    {
+        <tr  id="tr@(item.OrderId)">
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car)
+            </td>
+ 
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CloseOrder)
+            </td>
+ 
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+@if (User.IsInRole("Admin"))
+{
+                <a href="#" class="postdelete" data-message="Are you sure you want to delete @item.OrderId" data-delete-id=@item.OrderId>Delete</a>
+}
+            </td>
+        </tr>
+    }
+    </table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            DeletehController.init('@Url.Action("Delete","Cars")');
+
+
+        });
+
+
+    </script>
+
+}

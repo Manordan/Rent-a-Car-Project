@@ -1,0 +1,77 @@
+﻿@using CarSite.Models
+@model Car
+
+<div>
+    <h4>Car Details</h4>
+    <hr />
+    <dl class="dl-horizontal ">
+        <dt class="">
+            @Html.DisplayNameFor(model => model.CarModel.CarManufacturer.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarModel.CarManufacturer.Name)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.CarModel.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarModel.Model)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.YearOfManufacture)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.YearOfManufacture)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.CurrentKilometers)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.YearOfManufacture)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.IsAvailableForRent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsAvailableForRent)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.IsRightForRent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsRightForRent)
+        </dd>
+
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.Transmission)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Transmission)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.Branch.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Branch.Name)
+        </dd></dl>
+
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

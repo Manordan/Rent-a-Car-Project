@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("Upload", "Cars", FormMethod.Post, new { enctype = "multipart/form-data", id = "formUpload" }))
+        {
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="FileUpload">Select Image</label>
+                    <div class="col-md-10">
+                        <input type="file" name="FileUpload" id="FileUpload" class="form-control" />
+                        <span id="validat" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Upload" id="Upload" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function() {
+            var file = $('#FileUpload');
+            $("form").submit(function() {
+
+                    return validateImg(file);
+                }
+            );
+        });
+
+
+        function validateImg(fileName) {
+            sFileName = fileName.val();
+            var validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+            var blnValid = false;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < validFileExtensions.length; j++) {
+                    var sCurExtension = validFileExtensions[j];
+                    if (sFileName.lastIndexOf(sCurExtension) > -1) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!blnValid) {
+                $('#validat').text("Upload Image");
+                sFileName = "";
+                return false;
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>

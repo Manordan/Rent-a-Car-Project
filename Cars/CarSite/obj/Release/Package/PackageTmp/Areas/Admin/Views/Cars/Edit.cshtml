@@ -1,0 +1,124 @@
+﻿@using CarSite.Models;
+@model  Car
+@{
+    ViewBag.Title = "Edit";
+
+}
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "Cars", FormMethod.Post, new { id = "Cars", name = "Cars" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Car</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="carManufacturer" class="control-label col-md-2 ">Manufacturer</label>
+            <div class="col-md-10">
+                <select name="carManufacturer" id="carManufacturer" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModelId, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                <select name="CarModelId" id="CarModelId" class="form-control"></select>
+                @Html.ValidationMessageFor(model => model.CarModelId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Transmission, new { @class = "col-md-2 control-label " })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Transmission, new List<SelectListItem>
+       {
+           new SelectListItem {Text="Manual",Value="1" },
+           new SelectListItem {Text="Automatic",Value="2" }
+       }
+       , "Select", new { @class = "form-control " }
+       )
+                @Html.ValidationMessageFor(model => model.Transmission)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CurrentKilometers, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CurrentKilometers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CurrentKilometers, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearOfManufacture, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YearOfManufacture, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.YearOfManufacture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsRightForRent, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsRightForRent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IsRightForRent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsAvailableForRent, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsAvailableForRent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IsAvailableForRent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2 ">Image</span>
+            <div class="col-md-10">
+                <img SRC="~/images/defaultPic.jpg" width="150" id="pic_s" name="pic_s">
+
+                @Html.HiddenFor(model => model.Picture)
+                <button type="button" id="pic" class="btn btn-default">Add Image</button>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BranchId, htmlAttributes: new { @class = "control-label col-md-2 " })
+
+
+            <div class="col-md-10">
+                <select name="BranchId" id="BranchId" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Edit" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Html.Partial("_CarPartial")
+
+}
+

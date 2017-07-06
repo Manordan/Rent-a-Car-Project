@@ -1,0 +1,86 @@
+﻿@using CarSite.ViewModel
+@model OrderViewModel
+<p> </p>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Order summary</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4   ">
+                    <p>
+                        <h4>Model Type</h4>
+                    </p>
+                    <p>
+                        @Model.CarManufacturer @Model.Model
+                    </p>
+                    <p>
+                        <img src="~/Images/Cars/@Model.Picture" class="img-responsive img-rounded " />
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-8   ">
+
+                    <p>
+                        <h4>Receiving Car</h4>
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.StartDate)
+
+
+                    </p>
+
+                    <p>
+                        <h4>Return car</h4>
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.EndDate)
+
+                    </p>
+
+                    <p>
+                        <h4>Days of Rent</h4>
+                    </p>
+                    <p>
+                        @Model.SumRentDays
+                    </p>
+
+                    <p>
+                        <h4>Day Cost</h4>
+                    </p>
+                    <p>
+                        @Model.DailyCost <text>&#8362;</text>
+                    </p>
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-8 ">
+                    <h4>Total Price: @Model.TotalPrice <text>&#8362;</text></h4>
+
+                </div>
+
+                <div class="col-md-4 ">
+
+                  <h4 style="font: bolder">Order was successful</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+﻿@using CarSite.ViewModel;
+@model OrdersViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div >
+    <h4>Order Details</h4>
+    <hr />
+
+
+    <dl class="dl-horizontal ">
+        <dt class="">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.Car)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Car)
+        </dd>
+        <dt class="">
+            @Html.DisplayNameFor(model => model.CarId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarId)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.DailyCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DailyCost)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.DailyCostDelay)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DailyCostDelay)
+        </dd>
+        
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.SumRentDaysEnd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SumRentDaysEnd)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.SumRentDaysReturnDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SumRentDaysReturnDate)
+        </dd>
+
+        <dt class="">
+            @Html.DisplayNameFor(model => model.CloseOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CloseOrder)
+        </dd>
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

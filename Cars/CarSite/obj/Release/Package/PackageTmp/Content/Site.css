@@ -1,0 +1,62 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+   
+    max-width: 200px;
+}
+
+
+hr {
+    display: block;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1px;
+    color: antiquewhite;
+}
+
+
+.jumbotron {
+background-image: url("../Images/cars/pic1.jpg");
+background-size: cover;
+height:500px;
+
+color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+ 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

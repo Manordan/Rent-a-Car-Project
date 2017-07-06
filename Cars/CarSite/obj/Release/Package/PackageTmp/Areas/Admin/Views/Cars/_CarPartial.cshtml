@@ -1,0 +1,28 @@
+﻿@{
+    string pic = "/images/defaultPic.jpg";
+
+    if (ViewBag.Picture != null)
+    {
+        pic = "/images/Cars/" + ViewBag.Picture;
+    }
+}
+
+<script>
+
+
+    $(document).ready(function () {
+
+        SearchController.getCarManufacturerWithModel('#carManufacturer', '#CarModelId', '@ViewBag.carManufacturer', '@ViewBag.CarModelId').
+        getBranchesData('#BranchId', '@ViewBag.BranchId');
+
+        $('#pic').click(function () {
+
+            window.open("@Url.Action("Upload")", "_blank", "height=300px,width=400px");
+        }
+        );
+
+        $("#pic_s").attr("src", '@pic');
+
+    });
+
+</script>

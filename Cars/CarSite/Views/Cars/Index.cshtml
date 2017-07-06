@@ -1,0 +1,22 @@
+﻿@using CarSite.ViewModel
+@model IEnumerable<CarsViewModel>
+<p> </p>
+@Html.Partial("_SearchPartial")
+  <div>
+      <p> </p>
+  </div> 
+<div class="row">
+    @foreach (var item in Model)
+    {
+       
+        @Html.Partial("_CarsPartial", item)
+
+    }
+</div>
+
+
+@section Scripts {
+
+    <script src="~/Scripts/app/search.js"></script>
+ 
+}

@@ -1,0 +1,60 @@
+﻿
+@using CarSite.Models;
+@model IEnumerable<CarModel>
+
+<p>
+    @Html.ActionLink("Add", "Create")
+</p>
+<h2>Model</h2>
+<table class="table">
+    <tr>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.CarManufacturer.Name)
+        </th>
+
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.DailyCost)
+        </th>
+
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.DailyCostDelay)
+        </th>
+
+
+
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarManufacturer.Name)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DailyCost)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DailyCostDelay)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+
+
+            </td>
+        </tr>
+    }
+</table>
